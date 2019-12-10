@@ -2,8 +2,8 @@ const mysql = require('mysql') // 原生库，没有promise实现
 // co-mysql 有异步的
 
 const cfg = {
-    host: 'localhost',
-    user: 'root',
+    host: '127.0.0.1',
+    user: 'TrumanGao',
     password: 'admin',
     database: 'test', // 要操作的数据库名称
 }
