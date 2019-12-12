@@ -7,6 +7,7 @@ var logger = require('morgan');
 var routes = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+
 var app = express();
 
 // 解决跨域
@@ -29,10 +30,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', routes.home);
 app.use('/users', usersRouter);
+app.get('/', routes.home);
 app.get('/get_article_list', routes.getArticleList)
 app.get('/get_new_msg', routes.getNewMsg)
+app.get('/add_student', routes.addStudent)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

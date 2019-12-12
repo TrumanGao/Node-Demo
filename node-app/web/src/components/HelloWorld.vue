@@ -16,9 +16,23 @@ export default {
       msgList: ['Welcome to Your Vue.js App'],
     }
   },
+  mounted(){
+    this.getStudent()
+    this.getUsers()
+  },
   methods: {
+    getUsers(){
+      this.$http.get('/users').then(res=>{
+        console.log('获取学生',res.data)
+      })
+    },
+    getStudent(){
+      this.$http.get('/index/get_student').then(res=>{
+        console.log('获取学生',res.data)
+      })
+    },
     getNewMsg(){
-      this.$http.get('/get_new_msg').then(res=>{
+      this.$http.get('/index/get_new_msg').then(res=>{
         console.log('获取新msg',res);
         
         this.msgList.push(res.data)
